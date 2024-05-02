@@ -76,7 +76,7 @@ function iterate(it::PCGIterable, iteration::Int=start(it))
     end
 
     # Apply left preconditioner
-    ldiv!(it.c, it.Pl, it.r)
+    mul!(it.c, it.Pl, it.r)
 
     ρ_prev = it.ρ
     it.ρ = dot(it.c, it.r)
